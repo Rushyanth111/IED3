@@ -21,7 +21,7 @@ int main(int argc, char* argv[])
    {
         std::vector<std::string> arguments(argv,argv+argc);
         ArgPar::Params Par(arguments);
-        std::cout<<Par.rf()<<std::endl;
+        std::cout<<Par.retfilename()<<std::endl;
    }
    /*
    The first argument is always the process execution name.
