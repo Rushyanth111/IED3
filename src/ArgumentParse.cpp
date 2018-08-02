@@ -4,25 +4,36 @@
 namespace ArgPar{
     void Params::ParseCommands(std::vector<std::string> Commands)
     {
-        auto CheckBad_Values = [](std::vector<std::string> Bad_Values, std::string token) -> bool{
+        /*
+        *The function parses the Given input parameters and returns their to the class members.
+        * 
+        */
+       std::vector<std::string> Bad_Values = {"-f","-o"};
+       //Lambda Function below for bad parameters like not specifying a good parameter.
+        /*
+        *Lambda function not capturing with reference.  
+        */
+        auto CheckBad_Values = [&Bad_Values](std::string token) -> bool{
             for(int i=0;i<Bad_Values.size();i++)
             {
                 if(Bad_Values[i] == token)
                     return true;
             }
         };
+        
+        
         if((Commands.size()-1)%2 != 0)
             {
                 std::cout<<"Unable To Parse. Missing Parameters.";
             }
         std::string Maker;
-        std::vector<std::string> Bad_Values = {"-f","-o"};
+        
         for(int iter=1;iter<Commands.size();iter+=2)
         {
             if(Commands[iter]=="-f")
             {
                 Maker = Commands[iter+1];
-                if(CheckBad_Values(Bad_Values,Maker) == false)
+                if(CheckBad_Values(Maker) == false)
                 {
                     if(Maker.at(0) == '"')
                     {
