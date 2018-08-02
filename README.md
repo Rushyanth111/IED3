@@ -19,7 +19,7 @@ ___
 
 The developmental tools used are:
 
-1. GNU's GCC Compiler Collection.
+1. GNU's GCC Compiler Collection.[May Change to Clang in the future for building with reliable toolchain.]
 2. GNU's MAKE toolchain.
 3. CMAKE build system.
 4. Git for handling Github requests.
@@ -27,12 +27,17 @@ The developmental tools used are:
 
 ___
 
-To build it you need CMAKE and GCC present on the system. Execute the following commands to build it:
+To build it you need CMAKE and GCC present on the system. Execute the following commands in the directory to build it:
 
 ```bash
 git clone git@github:Rushyanth111/IED3.git
-mkdir
+mkdir build
+cd build
+cmake -G "MinGW Makefiles".. -CMAKE_SH="CMAKE_NOT_FOUND"
+mingw-make32.exe
 ```
 
+This will start the building process. Please be patient. 
+
 ___
-Note: This project is not in the intrest of professional development. This is a hobby.
+Note: This project is not in the lieu of professional development. This is a hobby to learn programming. 
