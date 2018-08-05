@@ -2,6 +2,8 @@
 #include <string>
 #include <vector>
 #include "ArgumentParse.hpp"
+#include "Id3.hpp"
+#include<unistd.h>
 /******************************************************
     Main.cpp is used for parsing the given file and 
     passing it on to the function. Do not use this 
@@ -21,7 +23,10 @@ int main(int argc, char *argv[])
     {
         std::vector<std::string> arguments(argv, argv + argc);
         ArgPar::Params Par(arguments);
+        ID3::IData Ar;
         std::cout << Par.retfilename() << std::endl;
+        Ar.ParseBuffer(Par.retfilename());
+        std::cout<<std::endl;
     }
     /*
    The first argument is always the process execution name.
