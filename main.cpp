@@ -23,10 +23,9 @@ int main(int argc, char *argv[])
     {
         std::vector<std::string> arguments(argv, argv + argc);
         ArgPar::Params Par(arguments);
-        ID3::IData Ar;
+        ID3::IData_Two Ar;
         std::cout << Par.retfilename() << std::endl;
-        Ar.ParseBuffer(Par.retfilename());
-        Ar.Display();
+        Ar.ParseFile(Par.retfilename());
         std::cout<<std::endl;
     }
     /*

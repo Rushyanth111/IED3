@@ -17,4 +17,10 @@ namespace ID3{
         void ParseBuffer(std::string Filename);
         void Display();
     };
+
+    class IData_Two{
+        public:
+        std::string Header;
+        void ParseFile(std::string Filename);
+    };
 }
