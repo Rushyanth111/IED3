@@ -5,11 +5,21 @@ Currently working on an ID3 editor. Is currently only focused on the v1.1 versio
 To do:
 
 1. Solidify and include the argument passing gaurds.
+    - Rework Argument Parse to Resemble getops() from POSIX.
+    - Rework to Class.
 2. Begin work on the ID3 class to parse information.
+    - ID3v1.1(TAG+) Definition.
+    - ID3v2.4 Libaraies.
 3. Edit the ID3 tags on an MP3 and save.
-4. Work on Id3 v3.
-5. Work with available audioplayback library to add playback functionality.
-6. Use GUI to consolidate the process.
+    - Parse Data and Write. Use GNU libs.
+    - Work on Frame Reading in ID3v2.4.
+4. Work with available audioplayback library to add playback functionality.
+5. Implement a front end in Electron.
+    - Or GTKUI
+    - Or QT. If you ABSOLUTELY HAVE TO.
+    - PyGUI works too :eyes:
+6. Try - And not fail - to use async techniques.
+7. Online Support for Tagging - Music Brainz is first choice.
 
 ... and lots more to do.
 
@@ -40,4 +50,4 @@ mingw-make32.exe
 This will start the building process. Please be patient. 
 
 ___
-Note: This project is not in the lieu of professional development. This is a hobby to learn programming. 
+Note: This project is not in the lieu of professional development. This is a hobby to learn programming.

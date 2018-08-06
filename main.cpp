@@ -26,6 +26,7 @@ int main(int argc, char *argv[])
         ID3::IData Ar;
         std::cout << Par.retfilename() << std::endl;
         Ar.ParseBuffer(Par.retfilename());
+        Ar.Display();
         std::cout<<std::endl;
     }
     /*
