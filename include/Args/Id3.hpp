@@ -1,26 +1,57 @@
 #include<vector>
 #include<string>
-
+#include<bitset>
+#include <fstream>
+#include <iostream>
+#include <array>
 namespace ID3{
     class IData_One{
-        std::string Header;
-        std::string title;
-        std::string artist;
-        std::string album;
-        std::string year;
-        std::string comment;
-        std::string track;
-        int genre_int;
-        std::string genre;
+        //Raw Data from the tag.
+        struct
+        {
+        char Header[3];
+        char title[30];
+        char artist[30];
+        char album[30];
+        char year[4];
+        char comment[30];
+        char genre[1];
+        }UPTag;
+
+        //Parsed Data from the Tag.
+        struct
+        {
+            std::string Title;
+            std::string Artist;
+            std::string Album;
+            short int Year;
+            std::string Comment;
+            std::string Genre;
+        }Parsed;
         void InternalParse();
-        public:
         void ParseBuffer(std::string Filename);
         void Display();
     };
 
-    class IData_Two{
+    class IData_Two{ //ID3v2.3 Data Parsing Class. Why Class? No clue. <- Find that out.
+        private:
+
+        //Header Flags for  
+        struct Header_Flags{
+            bool Unsyncronization = false;
+            bool Extended_Header = false;
+            bool Experimental_Header = false;
+        }Flags;
+
+        struct Header_Structure{
+            char File_Indentifier[3];
+            char Major_Revision;//ID3v2 Majour Version.
+            char Revision_Number; 
+            char flags;
+            char size[4]; //In the form of 0xxxxxxx for all 4. MSB discarded.
+        }Header;
         public:
-        std::string Header;
-        void ParseFile(std::string Filename);
+        void Read_Header(std::string Filename);
+        void HeaderParse(); //Sets Flags.
     };
 }
